@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <remote  name="aosp" fetch=".." review="https://android-review.googlesource.com/" />
+  <remote  name="github" fetch="https://github.com/Mashopy" revision="oneplus_mt6983_u_14.0.0_oneplus_ace_2v" sync-j="4" />
   <default revision="master-kernel-build-2021" remote="aosp" sync-j="4" />
 
   <superproject name="kernel/superproject" remote="aosp" revision="common-android12-5.10" />
+
+  <project path="kernel-5.10" name="android_kernel_oneplus_mt6983" remote="github" >
+    <linkfile dest="build.config" src="build.config.oplus6983" />
+  </project>
+  <project path="vendor" name="android_kernel_modules_oneplus_mt6983" remote="github" />
 
   <project path="build" name="kernel/build" />
   <project path="common" name="kernel/common" revision="android12-5.10" />
